@@ -1,19 +1,18 @@
 //
-//  YCTableViewController.m
+//  YCTableViewController2.m
 //  KOTree
 //
 //  Created by Yuchen on 2014-10-27.
 //  Copyright (c) 2014 Adam Horacek. All rights reserved.
 //
 
-#import "YCTableViewController.h"
 #import "YCTableViewController2.h"
 
-@interface YCTableViewController ()
+@interface YCTableViewController2 ()
 
 @end
 
-@implementation YCTableViewController
+@implementation YCTableViewController2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,38 +29,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)pushToTreeViewStoryboard:(id)sender {
-    // Get the storyboard named secondStoryBoard from the main bundle:
-    UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"TreeViewStoryboard" bundle:nil];
-    
-    // Load the initial view controller from the storyboard.
-    // Set this by selecting 'Is Initial View Controller' on the appropriate view controller in the storyboard.
-    UINavigationController* nav = [secondStoryBoard instantiateInitialViewController];
-    YCTableViewController2* theInitialViewController = [nav.viewControllers objectAtIndex:0];
-    
-    // Then push the new view controller in the usual way:
-    [self.navigationController pushViewController:theInitialViewController animated:YES];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    // Return the number of rows in the section.
+    return 3;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FolderCellIdentifier" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TreeviewCellReuseIdentifier" forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.

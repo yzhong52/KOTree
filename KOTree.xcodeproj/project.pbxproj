@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B7405E419FEA2280006CC38 /* TreeViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7405E319FEA2280006CC38 /* TreeViewStoryboard.storyboard */; };
+		4B7405E719FEA26B0006CC38 /* YCTableViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7405E619FEA26B0006CC38 /* YCTableViewController2.m */; };
 		4BD3F0A419FE9CD300E0FDF6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */; };
 		4BD3F0A719FE9DD700E0FDF6 /* YCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */; };
 		6604DA0515D160F10025AA86 /* KOTreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604DA0215D160F10025AA86 /* KOTreeViewController.m */; };
@@ -28,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B7405E319FEA2280006CC38 /* TreeViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TreeViewStoryboard.storyboard; sourceTree = "<group>"; };
+		4B7405E519FEA26B0006CC38 /* YCTableViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCTableViewController2.h; sourceTree = "<group>"; };
+		4B7405E619FEA26B0006CC38 /* YCTableViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCTableViewController2.m; sourceTree = "<group>"; };
 		4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4BD3F0A519FE9DD700E0FDF6 /* YCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCTableViewController.h; sourceTree = "<group>"; };
 		4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCTableViewController.m; sourceTree = "<group>"; };
@@ -102,11 +107,14 @@
 			children = (
 				4BD3F0A519FE9DD700E0FDF6 /* YCTableViewController.h */,
 				4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */,
+				4B7405E519FEA26B0006CC38 /* YCTableViewController2.h */,
+				4B7405E619FEA26B0006CC38 /* YCTableViewController2.m */,
 				66B86AE215DD155000DB7BAF /* Classes */,
 				6689447C15D15FBF00C6C800 /* KOAppDelegate.h */,
 				6689447D15D15FBF00C6C800 /* KOAppDelegate.m */,
 				6689447415D15FBF00C6C800 /* Supporting Files */,
 				4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */,
+				4B7405E319FEA2280006CC38 /* TreeViewStoryboard.storyboard */,
 			);
 			path = KOTree;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			files = (
 				6689447815D15FBF00C6C800 /* InfoPlist.strings in Resources */,
 				66BD9BD115D3F83A00B29086 /* copymove-cell-bg.png in Resources */,
+				4B7405E419FEA2280006CC38 /* TreeViewStoryboard.storyboard in Resources */,
 				66BD9BD215D3F83A00B29086 /* item-counter.png in Resources */,
 				66BD9BD315D3F83A00B29086 /* item-counter@2x.png in Resources */,
 				66BD9BD415D3F83A00B29086 /* item-icon-folder-selected.png in Resources */,
@@ -226,6 +235,7 @@
 				6604DA0515D160F10025AA86 /* KOTreeViewController.m in Sources */,
 				6604DA1115D162870025AA86 /* KOTreeTableViewCell.m in Sources */,
 				6604DA1415D163710025AA86 /* KOTreeItem.m in Sources */,
+				4B7405E719FEA26B0006CC38 /* YCTableViewController2.m in Sources */,
 				4BD3F0A719FE9DD700E0FDF6 /* YCTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
