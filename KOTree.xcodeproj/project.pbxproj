@@ -142,10 +142,10 @@
 		6689447315D15FBF00C6C800 /* KOTree */ = {
 			isa = PBXGroup;
 			children = (
-				4B7405E519FEA26B0006CC38 /* TreeViewController.h */,
-				4B7405E619FEA26B0006CC38 /* TreeViewController.m */,
 				4B7405F519FEE0110006CC38 /* TreeNode.h */,
 				4B7405F619FEE0110006CC38 /* TreeNode.m */,
+				4B7405E519FEA26B0006CC38 /* TreeViewController.h */,
+				4B7405E619FEA26B0006CC38 /* TreeViewController.m */,
 				4B7405E919FEB6FB0006CC38 /* TreeCellView.h */,
 				4B7405EA19FEB6FB0006CC38 /* TreeCellView.m */,
 				66B86AE215DD155000DB7BAF /* Classes */,

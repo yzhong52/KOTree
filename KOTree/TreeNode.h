@@ -20,6 +20,6 @@
 - (void)addNextSibling:(TreeNode *)treeNode;
 - (void)addChild:(TreeNode *)treeNode;
 
-
+- (instancetype) initWithTitle: (NSString*)title;
 
 @end

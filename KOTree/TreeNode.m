@@ -24,6 +24,16 @@
     return self;
 }
 
+
+- (instancetype) initWithTitle: (NSString*)title
+{
+    self = [super init];
+    if (self) {
+        _title = title;
+    }
+    return self;
+}
+
 - (void)addNextSibling:(TreeNode *)treeNode
 {
     if (self.nextSibling) {

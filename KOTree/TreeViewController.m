@@ -14,7 +14,10 @@
 
 @interface TreeViewController ()
 @property (nonatomic, strong) NSMutableArray *selectedTreeItems;
+
 @property (nonatomic, strong) TreeNode* root;
+@property (nonatomic, strong) NSMutableArray *treeNodes;
+
 @end
 
 @implementation TreeViewController
@@ -32,6 +35,13 @@
     // Do any additional setup after loading the view.
     
     self.treeItems = [self listItemsAtPath:@"/"];
+    
+    
+    self.root = [self testTree];
+    
+    self.treeNodes = [[NSMutableArray alloc] init];
+    [self.treeNodes addObject:self.root];
+    NSLog(@"%d", [self.treeNodes count]);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +56,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.treeItems count];
+    return [self.treeNodes count];
 }
 
 
@@ -59,10 +69,10 @@
         cell = [[TreeCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TreeviewCellReuseIdentifier"];
     }
     
-    KOTreeItem* item = (KOTreeItem* )[self.treeItems objectAtIndex:indexPath.row];
+    TreeNode* item = (TreeNode* )[self.treeNodes objectAtIndex:indexPath.row];
     
-    cell.titleLabel.text = item.base;
-    cell.treeItem = item;
+    cell.titleLabel.text = item.title;
+//    cell.treeItem = item;
     
     [cell setIsOpened: NO];
     
@@ -294,5 +304,17 @@
     }
 }
 
+
+-(TreeNode*) testTree{
+    TreeNode* root = [[TreeNode alloc] initWithTitle:@"Root"];
+    
+    TreeNode* child1 = [[TreeNode alloc] initWithTitle:@"Child 1"];
+    TreeNode* child2 = [[TreeNode alloc] initWithTitle:@"Child 2"];
+    
+    [root addChild:child1];
+    [root addChild:child2];
+    
+    return root;
+}
 
 @end
