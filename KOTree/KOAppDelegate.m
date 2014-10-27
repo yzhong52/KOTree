@@ -39,12 +39,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-	KOTreeViewController *treeViewController = [[KOTreeViewController alloc] init];
-	self.window.rootViewController = treeViewController;
-    [self.window makeKeyAndVisible];
+//    UINavigationController *rootNavigationController = (UINavigationController *)self.window.rootViewController;
+//    KOTreeViewController *myViewController = (KOTreeViewController *)[rootNavigationController topViewController];
+    // Configure myViewController.
     return YES;
+//    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//	KOTreeViewController *treeViewController = [[KOTreeViewController alloc] init];
+//	self.window.rootViewController = treeViewController;
+//    [self.window makeKeyAndVisible];
+//    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
