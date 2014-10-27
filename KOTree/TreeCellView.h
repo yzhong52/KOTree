@@ -1,5 +1,5 @@
 //
-//  YCTableViewController2.h
+//  TreeCellView.h
 //  KOTree
 //
 //  Created by Yuchen on 2014-10-27.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YCTableViewController2 : UITableViewController
+@interface TreeCellView : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *checkbox;
 
 @end

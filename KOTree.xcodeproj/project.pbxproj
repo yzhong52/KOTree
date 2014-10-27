@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4B7405E419FEA2280006CC38 /* TreeViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7405E319FEA2280006CC38 /* TreeViewStoryboard.storyboard */; };
-		4B7405E719FEA26B0006CC38 /* YCTableViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7405E619FEA26B0006CC38 /* YCTableViewController2.m */; };
+		4B7405E719FEA26B0006CC38 /* TreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7405E619FEA26B0006CC38 /* TreeViewController.m */; };
+		4B7405EB19FEB6FB0006CC38 /* TreeCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7405EA19FEB6FB0006CC38 /* TreeCellView.m */; };
+		4B7405EE19FEBD130006CC38 /* CheckboxNO.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B7405ED19FEBD130006CC38 /* CheckboxNO.png */; };
+		4B7405F019FEBD220006CC38 /* CheckboxYES.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B7405EF19FEBD220006CC38 /* CheckboxYES.png */; };
 		4BD3F0A419FE9CD300E0FDF6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */; };
 		4BD3F0A719FE9DD700E0FDF6 /* YCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */; };
 		6604DA0515D160F10025AA86 /* KOTreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604DA0215D160F10025AA86 /* KOTreeViewController.m */; };
@@ -31,8 +34,12 @@
 
 /* Begin PBXFileReference section */
 		4B7405E319FEA2280006CC38 /* TreeViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TreeViewStoryboard.storyboard; sourceTree = "<group>"; };
-		4B7405E519FEA26B0006CC38 /* YCTableViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCTableViewController2.h; sourceTree = "<group>"; };
-		4B7405E619FEA26B0006CC38 /* YCTableViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCTableViewController2.m; sourceTree = "<group>"; };
+		4B7405E519FEA26B0006CC38 /* TreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeViewController.h; sourceTree = "<group>"; };
+		4B7405E619FEA26B0006CC38 /* TreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeViewController.m; sourceTree = "<group>"; };
+		4B7405E919FEB6FB0006CC38 /* TreeCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeCellView.h; sourceTree = "<group>"; };
+		4B7405EA19FEB6FB0006CC38 /* TreeCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeCellView.m; sourceTree = "<group>"; };
+		4B7405ED19FEBD130006CC38 /* CheckboxNO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckboxNO.png; path = Images/CheckboxNO.png; sourceTree = "<group>"; };
+		4B7405EF19FEBD220006CC38 /* CheckboxYES.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckboxYES.png; path = Images/CheckboxYES.png; sourceTree = "<group>"; };
 		4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4BD3F0A519FE9DD700E0FDF6 /* YCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCTableViewController.h; sourceTree = "<group>"; };
 		4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCTableViewController.m; sourceTree = "<group>"; };
@@ -75,9 +82,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B7405E819FEB4BB0006CC38 /* TO BE REMOVED */ = {
+			isa = PBXGroup;
+			children = (
+				4BD3F0A519FE9DD700E0FDF6 /* YCTableViewController.h */,
+				4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */,
+			);
+			name = "TO BE REMOVED";
+			sourceTree = "<group>";
+		};
+		4B7405EC19FEBCF40006CC38 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4B7405EF19FEBD220006CC38 /* CheckboxYES.png */,
+				4B7405ED19FEBD130006CC38 /* CheckboxNO.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		6689445E15D15FBF00C6C800 = {
 			isa = PBXGroup;
 			children = (
+				4B7405EC19FEBCF40006CC38 /* Images */,
 				6689447315D15FBF00C6C800 /* KOTree */,
 				6689446C15D15FBF00C6C800 /* Frameworks */,
 				6689446A15D15FBF00C6C800 /* Products */,
@@ -105,13 +131,14 @@
 		6689447315D15FBF00C6C800 /* KOTree */ = {
 			isa = PBXGroup;
 			children = (
-				4BD3F0A519FE9DD700E0FDF6 /* YCTableViewController.h */,
-				4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */,
-				4B7405E519FEA26B0006CC38 /* YCTableViewController2.h */,
-				4B7405E619FEA26B0006CC38 /* YCTableViewController2.m */,
+				4B7405E519FEA26B0006CC38 /* TreeViewController.h */,
+				4B7405E619FEA26B0006CC38 /* TreeViewController.m */,
+				4B7405E919FEB6FB0006CC38 /* TreeCellView.h */,
+				4B7405EA19FEB6FB0006CC38 /* TreeCellView.m */,
 				66B86AE215DD155000DB7BAF /* Classes */,
 				6689447C15D15FBF00C6C800 /* KOAppDelegate.h */,
 				6689447D15D15FBF00C6C800 /* KOAppDelegate.m */,
+				4B7405E819FEB4BB0006CC38 /* TO BE REMOVED */,
 				6689447415D15FBF00C6C800 /* Supporting Files */,
 				4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */,
 				4B7405E319FEA2280006CC38 /* TreeViewStoryboard.storyboard */,
@@ -210,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7405EE19FEBD130006CC38 /* CheckboxNO.png in Resources */,
 				6689447815D15FBF00C6C800 /* InfoPlist.strings in Resources */,
 				66BD9BD115D3F83A00B29086 /* copymove-cell-bg.png in Resources */,
 				4B7405E419FEA2280006CC38 /* TreeViewStoryboard.storyboard in Resources */,
@@ -219,6 +247,7 @@
 				66BD9BD515D3F83A00B29086 /* item-icon-folder-selected@2x.png in Resources */,
 				4BD3F0A419FE9CD300E0FDF6 /* MainStoryboard.storyboard in Resources */,
 				66BD9BD615D3F83A00B29086 /* item-icon-folder.png in Resources */,
+				4B7405F019FEBD220006CC38 /* CheckboxYES.png in Resources */,
 				66BD9BD715D3F83A00B29086 /* item-icon-folder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,8 +263,9 @@
 				6689447E15D15FBF00C6C800 /* KOAppDelegate.m in Sources */,
 				6604DA0515D160F10025AA86 /* KOTreeViewController.m in Sources */,
 				6604DA1115D162870025AA86 /* KOTreeTableViewCell.m in Sources */,
+				4B7405EB19FEB6FB0006CC38 /* TreeCellView.m in Sources */,
 				6604DA1415D163710025AA86 /* KOTreeItem.m in Sources */,
-				4B7405E719FEA26B0006CC38 /* YCTableViewController2.m in Sources */,
+				4B7405E719FEA26B0006CC38 /* TreeViewController.m in Sources */,
 				4BD3F0A719FE9DD700E0FDF6 /* YCTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

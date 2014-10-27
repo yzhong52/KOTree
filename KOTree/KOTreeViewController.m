@@ -44,7 +44,6 @@
 @synthesize item0, item1, item1_1, item1_2, item1_2_1, item2, item3;
 
 - (NSMutableArray *)listItemsAtPath:(NSString *)path {
-	
 	item0 = [[KOTreeItem alloc] init];
 	[item0 setBase:@"Item 0"];
 	[item0 setPath:@"/"];

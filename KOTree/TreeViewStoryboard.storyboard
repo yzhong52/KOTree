@@ -8,17 +8,31 @@
         <!--Table Tree View-->
         <scene sceneID="fvO-1a-y9W">
             <objects>
-                <tableViewController id="dL2-u7-hFe" customClass="YCTableViewController2" sceneMemberID="viewController">
+                <tableViewController id="dL2-u7-hFe" customClass="TreeViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cc4-7K-jjz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TreeviewCellReuseIdentifier" id="TFR-7J-G49">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TreeviewCellReuseIdentifier" id="TFR-7J-G49" customClass="TreeCellView">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TFR-7J-G49" id="7yQ-9f-5cQ">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeP-uN-XpV">
+                                            <rect key="frame" x="554" y="5" width="33" height="33"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <state key="normal" backgroundImage="CheckboxNO.png"/>
+                                            <state key="selected" backgroundImage="CheckboxYES.png"/>
+                                            <connections>
+                                                <action selector="tapOnCheckbox:" destination="TFR-7J-G49" eventType="touchUpInside" id="CiK-BL-mBO"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkbox" destination="HeP-uN-XpV" id="u1L-BN-ejr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,7 +44,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8f-mO-eGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2517" y="272"/>
+            <point key="canvasLocation" x="2517" y="269"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x4F-ds-dMS">
@@ -51,4 +65,8 @@
             <point key="canvasLocation" x="1705" y="272"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CheckboxNO.png" width="512" height="512"/>
+        <image name="CheckboxYES.png" width="512" height="512"/>
+    </resources>
 </document>
