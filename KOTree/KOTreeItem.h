@@ -38,8 +38,8 @@
 
 @property (nonatomic, strong) NSString *base, *path;
 @property (nonatomic) NSInteger numberOfSubitems;
-@property (nonatomic, strong) KOTreeItem *parentSelectingItem;
-@property (nonatomic, strong) NSMutableArray *ancestorSelectingItems;
+@property (nonatomic, strong) KOTreeItem *parentSelectingItem;          // Parent
+@property (nonatomic, strong) NSMutableArray *ancestorSelectingItems;   // Childrens? 
 @property (nonatomic) NSInteger submersionLevel;
 
 - (BOOL)isEqualToSelectingItem:(KOTreeItem *)selectingItem;

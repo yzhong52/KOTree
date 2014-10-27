@@ -7,6 +7,7 @@
 //
 
 #import "TreeCellView.h"
+#import "KOTreeItem.h"
 
 @interface TreeCellView()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;

@@ -7,12 +7,14 @@
 //
 
 #import "TreeViewController.h"
-#import "KOTreeTableViewCell.h"
 #import "KOTreeItem.h"
 #import "TreeCellView.h"
 
+#import "TreeNode.h"
+
 @interface TreeViewController ()
 @property (nonatomic, strong) NSMutableArray *selectedTreeItems;
+@property (nonatomic, strong) TreeNode* root;
 @end
 
 @implementation TreeViewController
@@ -57,7 +59,11 @@
         cell = [[TreeCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TreeviewCellReuseIdentifier"];
     }
     
-    cell.titleLabel.text = @"CCSS";
+    KOTreeItem* item = (KOTreeItem* )[self.treeItems objectAtIndex:indexPath.row];
+    
+    cell.titleLabel.text = item.base;
+    cell.treeItem = item;
+    
     [cell setIsOpened: NO];
     
     return cell;
@@ -66,7 +72,108 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Get the table cell
+    TreeCellView *cell = (TreeCellView *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setIsOpened: YES];
+
+    // Obtain index to insert the items
+    NSInteger insertTreeItemIndex = [self.treeItems indexOfObject:cell.treeItem];
+    NSMutableArray *insertIndexPaths = [NSMutableArray array];
+    
+    // Get items to be insert
+    NSMutableArray *insertselectingItems = [self listItemsAtPath:[cell.treeItem.path stringByAppendingPathComponent:cell.treeItem.base]];
+
+    // Index Path to remove items
+    NSMutableArray *removeIndexPaths = [NSMutableArray array];
+    
+    // Items to be removed
+    NSMutableArray *treeItemsToRemove = [NSMutableArray array];
+    
+    
+    for (KOTreeItem *tmpTreeItem in insertselectingItems) {
+        [tmpTreeItem setPath:[cell.treeItem.path stringByAppendingPathComponent:cell.treeItem.base]];
+        
+        // A pointer to the parent
+        [tmpTreeItem setParentSelectingItem:cell.treeItem];
+        
+        // A array of children
+        [cell.treeItem.ancestorSelectingItems removeAllObjects];
+        [cell.treeItem.ancestorSelectingItems addObjectsFromArray:insertselectingItems];
+        
+        // What's this for?
+        insertTreeItemIndex++;
+        
+        // ?
+        BOOL contains = NO;
+        
+        // Time to update the data structure in self.treeItems
+        for (KOTreeItem *tmp2TreeItem in self.treeItems) {
+            if ([tmp2TreeItem isEqualToSelectingItem:tmpTreeItem]) {
+                contains = YES;
+                
+                [self selectingItemsToDelete:tmp2TreeItem saveToArray:treeItemsToRemove];
+                
+                removeIndexPaths = [self removeIndexPathForTreeItems:(NSMutableArray *)treeItemsToRemove forTableView:tableView];
+            }
+        }
+        
+        for (KOTreeItem *tmp2TreeItem in treeItemsToRemove) {
+            [self.treeItems removeObject:tmp2TreeItem];
+            
+            for (KOTreeItem *tmp3TreeItem in self.selectedTreeItems) {
+                if ([tmp3TreeItem isEqualToSelectingItem:tmp2TreeItem]) {
+                    NSLog(@"%@", tmp3TreeItem.base);
+                    [self.selectedTreeItems removeObject:tmp2TreeItem];
+                    break;
+                }
+            }
+        }
+        
+        if (!contains) {
+            [tmpTreeItem setSubmersionLevel:tmpTreeItem.submersionLevel];
+            
+            [self.treeItems insertObject:tmpTreeItem atIndex:insertTreeItemIndex];
+            
+            NSIndexPath *indexPth = [NSIndexPath indexPathForRow:insertTreeItemIndex inSection:0];
+            [insertIndexPaths addObject:indexPth];
+        }
+    }
+    
+    if ([insertIndexPaths count])
+        [tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
+    
+    if ([removeIndexPaths count])
+        [tableView deleteRowsAtIndexPaths:removeIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
 }
+
+- (void)selectingItemsToDelete:(KOTreeItem *)selItems saveToArray:(NSMutableArray *)deleteSelectingItems{
+    // Recursive algorithm
+    for (KOTreeItem *obj in selItems.ancestorSelectingItems) {
+        [self selectingItemsToDelete:obj saveToArray:deleteSelectingItems];
+    }
+    
+    [deleteSelectingItems addObject:selItems];
+}
+
+
+- (NSMutableArray *)removeIndexPathForTreeItems:(NSMutableArray *)treeItemsToRemove forTableView:(UITableView*) tableView {
+    NSMutableArray *result = [NSMutableArray array];
+    
+    for (NSInteger i = 0; i < [tableView numberOfRowsInSection:0]; ++i) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        TreeCellView *cell = (TreeCellView *)[tableView cellForRowAtIndexPath:indexPath];
+        
+        for (KOTreeItem *tmpTreeItem in treeItemsToRemove) {
+            if ([cell.treeItem isEqualToSelectingItem:tmpTreeItem]){
+                [result addObject:indexPath];
+            }
+        }
+    }	
+    
+    return result;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -118,11 +225,12 @@
     
     item0 = [[KOTreeItem alloc] init];
     [item0 setBase:@"Item 0"];
-    [item0 setPath:@"/"];
-    [item0 setSubmersionLevel:0];
+    [item0 setPath:@"/"];          // Yuchen: root view
+    [item0 setSubmersionLevel:0];  // Count the number of '/'s above? Why not?
     [item0 setParentSelectingItem:nil];
     [item0 setAncestorSelectingItems:[NSMutableArray arrayWithObjects:item1, item2, item3, nil]];
-    [item0 setNumberOfSubitems:3];
+    [item0 setNumberOfSubitems:3]; // Yuchen: get from [item0.ancestorSelectingItems count]?
+
     
     item1 = [[KOTreeItem alloc] init];
     [item1 setBase:@"Item 1"];

@@ -200,14 +200,14 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[self tableViewAction:tableView withIndexPath:indexPath];
-	
 	KOTreeTableViewCell *cell = (KOTreeTableViewCell *)[treeTableView cellForRowAtIndexPath:indexPath];
 	
+    // Items to be insert
 	NSInteger insertTreeItemIndex = [self.treeItems indexOfObject:cell.treeItem];
-	NSMutableArray *insertIndexPaths = [NSMutableArray array];
+	NSMutableArray *insertIndexPaths = [NSMutableArray array]; // empty
 	NSMutableArray *insertselectingItems = [self listItemsAtPath:[cell.treeItem.path stringByAppendingPathComponent:cell.treeItem.base]];
 	
+    // Items to be remove
 	NSMutableArray *removeIndexPaths = [NSMutableArray array];
 	NSMutableArray *treeItemsToRemove = [NSMutableArray array];
 	
@@ -216,7 +216,7 @@
 		[tmpTreeItem setParentSelectingItem:cell.treeItem];
 		
 		[cell.treeItem.ancestorSelectingItems removeAllObjects];
-		[cell.treeItem.ancestorSelectingItems addObjectsFromArray:insertselectingItems];
+		[cell.treeItem.ancestorSelectingItems addObjectsFromArray:insertselectingItems]; // all sibling?
 		
 		insertTreeItemIndex++;
 		

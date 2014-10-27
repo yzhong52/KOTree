@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class KOTreeItem;
+
 @interface TreeCellView : UITableViewCell
+
+@property (nonatomic, strong) KOTreeItem *treeItem;
 
 @property (weak, nonatomic) IBOutlet UIButton *checkbox;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
