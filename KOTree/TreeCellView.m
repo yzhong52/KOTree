@@ -8,10 +8,15 @@
 
 #import "TreeCellView.h"
 
+@interface TreeCellView()
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@end
+
 @implementation TreeCellView
 
 - (void)awakeFromNib {
     // Initialization code
+    NSLog( @"awakeFromNib for TreeCellView is called. Or NOT? " );
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -28,11 +33,15 @@
         
     }
     
-    
     return self;
 }
 - (IBAction)tapOnCheckbox:(id)sender {
     self.checkbox.selected = !self.checkbox.selected;
+}
+
+
+- (void)setIsOpened: (BOOL)flag {
+    self.iconImage.image = [UIImage imageNamed: flag ? @"FolderOpen.png" : @"FolderClose.png"];
 }
 
 @end

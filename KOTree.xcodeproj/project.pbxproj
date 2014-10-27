@@ -12,6 +12,8 @@
 		4B7405EB19FEB6FB0006CC38 /* TreeCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7405EA19FEB6FB0006CC38 /* TreeCellView.m */; };
 		4B7405EE19FEBD130006CC38 /* CheckboxNO.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B7405ED19FEBD130006CC38 /* CheckboxNO.png */; };
 		4B7405F019FEBD220006CC38 /* CheckboxYES.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B7405EF19FEBD220006CC38 /* CheckboxYES.png */; };
+		4B7405F319FEC9310006CC38 /* FolderClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B7405F119FEC9310006CC38 /* FolderClose.png */; };
+		4B7405F419FEC9310006CC38 /* FolderOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B7405F219FEC9310006CC38 /* FolderOpen.png */; };
 		4BD3F0A419FE9CD300E0FDF6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */; };
 		4BD3F0A719FE9DD700E0FDF6 /* YCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */; };
 		6604DA0515D160F10025AA86 /* KOTreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604DA0215D160F10025AA86 /* KOTreeViewController.m */; };
@@ -40,6 +42,8 @@
 		4B7405EA19FEB6FB0006CC38 /* TreeCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeCellView.m; sourceTree = "<group>"; };
 		4B7405ED19FEBD130006CC38 /* CheckboxNO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckboxNO.png; path = Images/CheckboxNO.png; sourceTree = "<group>"; };
 		4B7405EF19FEBD220006CC38 /* CheckboxYES.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckboxYES.png; path = Images/CheckboxYES.png; sourceTree = "<group>"; };
+		4B7405F119FEC9310006CC38 /* FolderClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FolderClose.png; path = Images/FolderClose.png; sourceTree = "<group>"; };
+		4B7405F219FEC9310006CC38 /* FolderOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FolderOpen.png; path = Images/FolderOpen.png; sourceTree = "<group>"; };
 		4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4BD3F0A519FE9DD700E0FDF6 /* YCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCTableViewController.h; sourceTree = "<group>"; };
 		4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCTableViewController.m; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		4B7405EC19FEBCF40006CC38 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4B7405F119FEC9310006CC38 /* FolderClose.png */,
+				4B7405F219FEC9310006CC38 /* FolderOpen.png */,
 				4B7405EF19FEBD220006CC38 /* CheckboxYES.png */,
 				4B7405ED19FEBD130006CC38 /* CheckboxNO.png */,
 			);
@@ -246,9 +252,11 @@
 				66BD9BD415D3F83A00B29086 /* item-icon-folder-selected.png in Resources */,
 				66BD9BD515D3F83A00B29086 /* item-icon-folder-selected@2x.png in Resources */,
 				4BD3F0A419FE9CD300E0FDF6 /* MainStoryboard.storyboard in Resources */,
+				4B7405F319FEC9310006CC38 /* FolderClose.png in Resources */,
 				66BD9BD615D3F83A00B29086 /* item-icon-folder.png in Resources */,
 				4B7405F019FEBD220006CC38 /* CheckboxYES.png in Resources */,
 				66BD9BD715D3F83A00B29086 /* item-icon-folder@2x.png in Resources */,
+				4B7405F419FEC9310006CC38 /* FolderOpen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

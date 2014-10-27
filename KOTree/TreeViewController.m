@@ -57,11 +57,16 @@
         cell = [[TreeCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TreeviewCellReuseIdentifier"];
     }
     
-    cell.textLabel.text = @"Shelly";
+    cell.titleLabel.text = @"CCSS";
+    [cell setIsOpened: NO];
     
     return cell;
 }
 
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
