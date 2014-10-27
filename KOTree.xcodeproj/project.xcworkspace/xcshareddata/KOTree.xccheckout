@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5EC4A329-CE77-4FE6-A8BB-6CFE522841C5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KOTree</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>423B336E7660B02B1C27516ADDBDB8EF98C6DAB5</key>
+		<string>https://bitbucket.org/yuchen_avenza/kotree</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KOTree.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>423B336E7660B02B1C27516ADDBDB8EF98C6DAB5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/yuchen_avenza/kotree</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>423B336E7660B02B1C27516ADDBDB8EF98C6DAB5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>423B336E7660B02B1C27516ADDBDB8EF98C6DAB5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KOTree</string>
+		</dict>
+	</array>
+</dict>
+</plist>
