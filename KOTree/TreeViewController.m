@@ -56,7 +56,7 @@
     }
     
     TreeNode* item = (TreeNode* )[self.treeNodesForCells objectAtIndex:indexPath.row];
-
+    
     cell.treeNode = item;
     [cell updateCell];
     
@@ -72,7 +72,7 @@
     
     TreeNode* treeNode = cell.treeNode;
     treeNode.isOpened = !treeNode.isOpened;
-
+    
     if ([treeNode isOpened]) {
         // to open a folder
         NSArray* treeNodesToInsert = [treeNode getChildren];
@@ -91,7 +91,7 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:ridx inSection:0];
                 [indexPathsToInsert insertObject:indexPath atIndex:i];
             }
-
+            
             [tableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:UITableViewRowAnimationFade];
         }
     } else {
@@ -123,7 +123,7 @@
     }
     
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    return; 
+    return;
 }
 
 - (void)selectingItemsToDelete:(KOTreeItem *)selItems saveToArray:(NSMutableArray *)deleteSelectingItems{
@@ -148,7 +148,7 @@
                 [result addObject:indexPath];
             }
         }
-    }	
+    }
     
     return result;
 }
@@ -161,6 +161,11 @@
     
     [root addChild:child1];
     [root addChild:child2];
+    
+    TreeNode* grandChild1 = [[TreeNode alloc] initWithTitle:@"Grandchild 1"];
+    TreeNode* grandChild2 = [[TreeNode alloc] initWithTitle:@"Grandchild 2"];
+    [child1 addChild:grandChild1];
+    [child1 addChild:grandChild2];
     
     return root;
 }

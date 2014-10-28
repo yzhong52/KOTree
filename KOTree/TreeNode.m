@@ -55,7 +55,7 @@
         [self.firstChild addNextSibling:treeNode];
     } else {
         self.firstChild = treeNode;
-        self.firstChild.depth = treeNode.depth + 1;
+        self.firstChild.depth = self.depth + 1;
     }
 }
 
@@ -80,8 +80,10 @@
     while (child) {
         [children addObject:child];
         
-        NSArray* grandChildren = [child getAllVisibleChildren];
-        [children addObjectsFromArray:grandChildren];
+        if ( child.isOpened ) {
+            NSArray* grandChildren = [child getAllVisibleChildren];
+            [children addObjectsFromArray:grandChildren];
+        }
         
         child = child.nextSibling;
     }
