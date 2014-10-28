@@ -7,9 +7,12 @@
 //
 
 #import "TreeCellView.h"
+#import "TreeNode.h"
 #import "KOTreeItem.h"
 
 @interface TreeCellView()
+@property (weak, nonatomic) IBOutlet UIView *bigContentView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftSpacing;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @end
 
@@ -17,7 +20,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    NSLog( @"awakeFromNib for TreeCellView is called. Or NOT? " );
+    // NSLog( @"awakeFromNib for TreeCellView is called. " );
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -41,8 +44,13 @@
 }
 
 
-- (void)setIsOpened: (BOOL)flag {
-    self.iconImage.image = [UIImage imageNamed: flag ? @"FolderOpen.png" : @"FolderClose.png"];
+-(void) updateCell{
+    self.titleLabel.text = self.treeNode.title;
+    self.iconImage.image = [UIImage imageNamed: self.treeNode.isOpened ? @"FolderOpen.png" : @"FolderClose.png"];
+    
+    self.leftSpacing.constant = 15 * self.treeNode.depth;
+    [self.contentView needsUpdateConstraints];
+    
 }
 
 @end

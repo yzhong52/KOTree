@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class KOTreeItem;
+@class TreeNode;
 
 @interface TreeCellView : UITableViewCell
 
 @property (nonatomic, strong) KOTreeItem *treeItem;
 
+@property (nonatomic, weak) TreeNode* treeNode;
+
 @property (weak, nonatomic) IBOutlet UIButton *checkbox;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
-- (void)setIsOpened: (BOOL)flag;
+-(void) updateCell;
 
 @end

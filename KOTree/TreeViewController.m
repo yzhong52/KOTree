@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *selectedTreeItems;
 
 @property (nonatomic, strong) TreeNode* root;
-@property (nonatomic, strong) NSMutableArray *treeNodes;
+@property (nonatomic, strong) NSMutableArray *treeNodesForCells;
 
 @end
 
@@ -39,9 +39,8 @@
     
     self.root = [self testTree];
     
-    self.treeNodes = [[NSMutableArray alloc] init];
-    [self.treeNodes addObject:self.root];
-    NSLog(@"%d", [self.treeNodes count]);
+    self.treeNodesForCells = [[NSMutableArray alloc] init];
+    [self.treeNodesForCells addObject:self.root];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,7 +55,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.treeNodes count];
+    return [self.treeNodesForCells count];
 }
 
 
@@ -69,12 +68,10 @@
         cell = [[TreeCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TreeviewCellReuseIdentifier"];
     }
     
-    TreeNode* item = (TreeNode* )[self.treeNodes objectAtIndex:indexPath.row];
-    
-    cell.titleLabel.text = item.title;
-//    cell.treeItem = item;
-    
-    [cell setIsOpened: NO];
+    TreeNode* item = (TreeNode* )[self.treeNodesForCells objectAtIndex:indexPath.row];
+
+    cell.treeNode = item;
+    [cell updateCell];
     
     return cell;
 }
@@ -85,7 +82,40 @@
     
     // Get the table cell
     TreeCellView *cell = (TreeCellView *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell setIsOpened: YES];
+    
+    TreeNode* treeNode = cell.treeNode;
+    treeNode.isOpened = !treeNode.isOpened;
+
+    if ([treeNode isOpened]) {
+        // to open a folder
+        NSArray* treeNodesToInsert = [treeNode getChildren];
+        
+        const NSInteger numberOfNodesToInsert = [treeNodesToInsert count];
+        if (numberOfNodesToInsert!=0) {
+            NSMutableArray* indexPathsToInsert = [[NSMutableArray alloc] initWithCapacity:numberOfNodesToInsert];
+            for (NSInteger i=0; i<numberOfNodesToInsert; i++) {
+                TreeNode* node = [treeNodesToInsert objectAtIndex:i];
+                NSUInteger ridx = indexPath.row+i+1;  // row index for the TreeNode
+                
+                // Update the array for display
+                [self.treeNodesForCells insertObject:node atIndex:ridx];
+                
+                // keep track of the indexpath that need to be updated in the table
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:ridx inSection:0];
+                [indexPathsToInsert insertObject:indexPath atIndex:i];
+            }
+            NSLog(@"%tu", [indexPathsToInsert count]);
+            NSLog(@"%@", indexPathsToInsert);
+            [tableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:UITableViewRowAnimationBottom];
+        }
+    } else {
+        // to close a folder
+    }
+    
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    return; 
+    
+    
 
     // Obtain index to insert the items
     NSInteger insertTreeItemIndex = [self.treeItems indexOfObject:cell.treeItem];

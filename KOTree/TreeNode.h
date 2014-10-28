@@ -14,11 +14,13 @@
 @property(nonatomic, strong) TreeNode* nextSibling;
 @property(nonatomic, strong) TreeNode* firstChild;
 
-@property(nonatomic, assign) NSUInteger depth;
-@property(nonatomic, strong) NSString* title;
-
 - (void)addNextSibling:(TreeNode *)treeNode;
 - (void)addChild:(TreeNode *)treeNode;
+- (NSArray*) getChildren;
+
+@property(nonatomic, assign) NSUInteger depth;
+@property(nonatomic, strong) NSString* title;
+@property(nonatomic, assign) BOOL isOpened;
 
 - (instancetype) initWithTitle: (NSString*)title;
 
