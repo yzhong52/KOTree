@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YCTableViewController : UITableViewController
+@interface FristViewController : UIViewController
 
 @end
