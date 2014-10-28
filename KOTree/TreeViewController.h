@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface TreeViewController : UITableViewController
-@property (nonatomic, strong) NSMutableArray *treeItems;
 @end

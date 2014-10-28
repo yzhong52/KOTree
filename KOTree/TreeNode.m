@@ -71,4 +71,23 @@
     return children;
 }
 
+
+- (NSArray*) getAllVisibleChildren
+{
+    NSMutableArray* children = [[NSMutableArray alloc] init];
+    
+    TreeNode* child = self.firstChild;
+    while (child) {
+        [children addObject:child];
+        
+        NSArray* grandChildren = [child getAllVisibleChildren];
+        [children addObjectsFromArray:grandChildren];
+        
+        child = child.nextSibling;
+    }
+    
+    
+    return children;
+}
+
 @end

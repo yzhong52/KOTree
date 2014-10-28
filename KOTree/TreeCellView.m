@@ -12,8 +12,8 @@
 
 @interface TreeCellView()
 @property (weak, nonatomic) IBOutlet UIView *bigContentView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftSpacing;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftSpacing;
 @end
 
 @implementation TreeCellView

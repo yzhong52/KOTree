@@ -13,7 +13,6 @@
 #import "TreeNode.h"
 
 @interface TreeViewController ()
-@property (nonatomic, strong) NSMutableArray *selectedTreeItems;
 
 @property (nonatomic, strong) TreeNode* root;
 @property (nonatomic, strong) NSMutableArray *treeNodesForCells;
@@ -24,18 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.selectedTreeItems = [NSMutableArray array];
-    // Do any additional setup after loading the view.
-    
-    self.treeItems = [self listItemsAtPath:@"/"];
-    
     
     self.root = [self testTree];
     
@@ -104,87 +91,39 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:ridx inSection:0];
                 [indexPathsToInsert insertObject:indexPath atIndex:i];
             }
-            NSLog(@"%tu", [indexPathsToInsert count]);
-            NSLog(@"%@", indexPathsToInsert);
-            [tableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:UITableViewRowAnimationBottom];
+
+            [tableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:UITableViewRowAnimationFade];
         }
     } else {
         // to close a folder
+        NSArray* treeNodesToHide = [treeNode getAllVisibleChildren];
+        
+        const NSInteger numberOfNodesToHide = [treeNodesToHide count];
+        if (numberOfNodesToHide!=0) {
+            NSMutableArray* indexPathsToHide = [[NSMutableArray alloc] initWithCapacity:numberOfNodesToHide];
+            for (NSInteger i=0; i<numberOfNodesToHide; i++) {
+                TreeNode* node = [treeNodesToHide objectAtIndex:i];
+                NSUInteger ridx = indexPath.row+i+1;  // row index for the TreeNode
+                
+                // keep track of the indexpath that need to be updated in the table
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:ridx inSection:0];
+                [indexPathsToHide insertObject:indexPath atIndex:i];
+                
+                // hide this treenode
+                node.isOpened = false;
+            }
+            
+            NSRange range = NSMakeRange(indexPath.row+1, numberOfNodesToHide);
+            [self.treeNodesForCells removeObjectsInRange:range];
+            
+            NSLog(@"%tu", [indexPathsToHide count]);
+            NSLog(@"%@", indexPathsToHide);
+            [tableView deleteRowsAtIndexPaths:indexPathsToHide withRowAnimation:UITableViewRowAnimationFade];
+        }
     }
     
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     return; 
-    
-    
-
-    // Obtain index to insert the items
-    NSInteger insertTreeItemIndex = [self.treeItems indexOfObject:cell.treeItem];
-    NSMutableArray *insertIndexPaths = [NSMutableArray array];
-    
-    // Get items to be insert
-    NSMutableArray *insertselectingItems = [self listItemsAtPath:[cell.treeItem.path stringByAppendingPathComponent:cell.treeItem.base]];
-
-    // Index Path to remove items
-    NSMutableArray *removeIndexPaths = [NSMutableArray array];
-    
-    // Items to be removed
-    NSMutableArray *treeItemsToRemove = [NSMutableArray array];
-    
-    
-    for (KOTreeItem *tmpTreeItem in insertselectingItems) {
-        [tmpTreeItem setPath:[cell.treeItem.path stringByAppendingPathComponent:cell.treeItem.base]];
-        
-        // A pointer to the parent
-        [tmpTreeItem setParentSelectingItem:cell.treeItem];
-        
-        // A array of children
-        [cell.treeItem.ancestorSelectingItems removeAllObjects];
-        [cell.treeItem.ancestorSelectingItems addObjectsFromArray:insertselectingItems];
-        
-        // What's this for?
-        insertTreeItemIndex++;
-        
-        // ?
-        BOOL contains = NO;
-        
-        // Time to update the data structure in self.treeItems
-        for (KOTreeItem *tmp2TreeItem in self.treeItems) {
-            if ([tmp2TreeItem isEqualToSelectingItem:tmpTreeItem]) {
-                contains = YES;
-                
-                [self selectingItemsToDelete:tmp2TreeItem saveToArray:treeItemsToRemove];
-                
-                removeIndexPaths = [self removeIndexPathForTreeItems:(NSMutableArray *)treeItemsToRemove forTableView:tableView];
-            }
-        }
-        
-        for (KOTreeItem *tmp2TreeItem in treeItemsToRemove) {
-            [self.treeItems removeObject:tmp2TreeItem];
-            
-            for (KOTreeItem *tmp3TreeItem in self.selectedTreeItems) {
-                if ([tmp3TreeItem isEqualToSelectingItem:tmp2TreeItem]) {
-                    NSLog(@"%@", tmp3TreeItem.base);
-                    [self.selectedTreeItems removeObject:tmp2TreeItem];
-                    break;
-                }
-            }
-        }
-        
-        if (!contains) {
-            [tmpTreeItem setSubmersionLevel:tmpTreeItem.submersionLevel];
-            
-            [self.treeItems insertObject:tmpTreeItem atIndex:insertTreeItemIndex];
-            
-            NSIndexPath *indexPth = [NSIndexPath indexPathForRow:insertTreeItemIndex inSection:0];
-            [insertIndexPaths addObject:indexPth];
-        }
-    }
-    
-    if ([insertIndexPaths count])
-        [tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
-    
-    if ([removeIndexPaths count])
-        [tableView deleteRowsAtIndexPaths:removeIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 - (void)selectingItemsToDelete:(KOTreeItem *)selItems saveToArray:(NSMutableArray *)deleteSelectingItems{
@@ -213,127 +152,6 @@
     
     return result;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-
-- (NSMutableArray *)listItemsAtPath:(NSString *)path {
-    KOTreeItem *item0, *item1, *item1_1, *item1_2, *item1_2_1, *item2, *item3;
-    
-    item0 = [[KOTreeItem alloc] init];
-    [item0 setBase:@"Item 0"];
-    [item0 setPath:@"/"];          // Yuchen: root view
-    [item0 setSubmersionLevel:0];  // Count the number of '/'s above? Why not?
-    [item0 setParentSelectingItem:nil];
-    [item0 setAncestorSelectingItems:[NSMutableArray arrayWithObjects:item1, item2, item3, nil]];
-    [item0 setNumberOfSubitems:3]; // Yuchen: get from [item0.ancestorSelectingItems count]?
-
-    
-    item1 = [[KOTreeItem alloc] init];
-    [item1 setBase:@"Item 1"];
-    [item1 setPath:@"/Item 0"];
-    [item1 setSubmersionLevel:1];
-    [item1 setParentSelectingItem:item0];
-    [item1 setAncestorSelectingItems:[NSMutableArray arrayWithObjects:item1_1, item1_2, nil]];
-    [item1 setNumberOfSubitems:2];
-    
-    item1_1 = [[KOTreeItem alloc] init];
-    [item1_1 setBase:@"Item 1 1"];
-    [item1_1 setPath:@"/Item 0/Item 1"];
-    [item1_1 setSubmersionLevel:2];
-    [item1_1 setParentSelectingItem:item1];
-    [item1_1 setAncestorSelectingItems:[NSMutableArray array]];
-    [item1_1 setNumberOfSubitems:0];
-    
-    item1_2 = [[KOTreeItem alloc] init];
-    [item1_2 setBase:@"Item 1 2"];
-    [item1_2 setPath:@"/Item 0/Item 1"];
-    [item1_2 setSubmersionLevel:2];
-    [item1_2 setParentSelectingItem:item1];
-    [item1_2 setAncestorSelectingItems:[NSMutableArray arrayWithObjects:item1_2_1, nil]];
-    [item1_2 setNumberOfSubitems:1];
-    
-    item1_2_1 = [[KOTreeItem alloc] init];
-    [item1_2_1 setBase:@"Item 1 2 1"];
-    [item1_2_1 setPath:@"/Item 0/Item 1/Item 1 2"];
-    [item1_2_1 setSubmersionLevel:3];
-    [item1_2_1 setParentSelectingItem:item1_2];
-    [item1_2_1 setAncestorSelectingItems:[NSMutableArray array]];
-    [item1_2_1 setNumberOfSubitems:0];
-    
-    item2 = [[KOTreeItem alloc] init];
-    [item2 setBase:@"Item 2"];
-    [item2 setPath:@"/Item 0"];
-    [item2 setSubmersionLevel:1];
-    [item2 setParentSelectingItem:item0];
-    [item2 setAncestorSelectingItems:[NSMutableArray array]];
-    [item2 setNumberOfSubitems:0];
-    
-    item3 = [[KOTreeItem alloc] init];
-    [item3 setBase:@"Item 3"];
-    [item3 setPath:@"/Item 0"];
-    [item3 setSubmersionLevel:1];
-    [item3 setParentSelectingItem:item0];
-    [item3 setAncestorSelectingItems:[NSMutableArray array]];
-    [item3 setNumberOfSubitems:0];
-    
-    NSLog(@"%@", path);
-    if ([path isEqualToString:@"/"]) {
-        return [NSMutableArray arrayWithObject:item0];
-    } else if ([path isEqualToString:@"/Item 0"]) {
-        return [NSMutableArray arrayWithObjects:item1, item2, item3, nil];
-    } else if ([path isEqualToString:@"/Item 0/Item 1"]) {
-        return [NSMutableArray arrayWithObjects:item1_1, item1_2, nil];
-    } else if ([path isEqualToString:@"/Item 0/Item 1/Item 1 2"]) {
-        return [NSMutableArray arrayWithObjects:item1_2_1, nil];
-    } else {
-        return [NSMutableArray array];
-    }
-}
-
 
 -(TreeNode*) testTree{
     TreeNode* root = [[TreeNode alloc] initWithTitle:@"Root"];

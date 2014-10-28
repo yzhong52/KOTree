@@ -17,6 +17,7 @@
 - (void)addNextSibling:(TreeNode *)treeNode;
 - (void)addChild:(TreeNode *)treeNode;
 - (NSArray*) getChildren;
+- (NSArray*) getAllVisibleChildren;
 
 @property(nonatomic, assign) NSUInteger depth;
 @property(nonatomic, strong) NSString* title;
