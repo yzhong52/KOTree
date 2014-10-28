@@ -1,5 +1,5 @@
 //
-//  YCTableViewController.h
+//  YCTableViewController2.h
 //  KOTree
 //
 //  Created by Yuchen on 2014-10-27.
@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YCTableViewController : UITableViewController
-
+@interface TreeViewController : UITableViewController
 @end
