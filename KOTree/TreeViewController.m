@@ -7,7 +7,6 @@
 //
 
 #import "TreeViewController.h"
-#import "KOTreeItem.h"
 #import "TreeCellView.h"
 
 #import "TreeNode.h"
@@ -47,8 +46,6 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TreeviewCellReuseIdentifier" forIndexPath:indexPath];
-    
     // Configure the cell...
     TreeCellView *cell = [tableView dequeueReusableCellWithIdentifier:@"TreeviewCellReuseIdentifier"];
     if (!cell){
@@ -126,32 +123,6 @@
     return;
 }
 
-- (void)selectingItemsToDelete:(KOTreeItem *)selItems saveToArray:(NSMutableArray *)deleteSelectingItems{
-    // Recursive algorithm
-    for (KOTreeItem *obj in selItems.ancestorSelectingItems) {
-        [self selectingItemsToDelete:obj saveToArray:deleteSelectingItems];
-    }
-    
-    [deleteSelectingItems addObject:selItems];
-}
-
-
-- (NSMutableArray *)removeIndexPathForTreeItems:(NSMutableArray *)treeItemsToRemove forTableView:(UITableView*) tableView {
-    NSMutableArray *result = [NSMutableArray array];
-    
-    for (NSInteger i = 0; i < [tableView numberOfRowsInSection:0]; ++i) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        TreeCellView *cell = (TreeCellView *)[tableView cellForRowAtIndexPath:indexPath];
-        
-        for (KOTreeItem *tmpTreeItem in treeItemsToRemove) {
-            if ([cell.treeItem isEqualToSelectingItem:tmpTreeItem]){
-                [result addObject:indexPath];
-            }
-        }
-    }
-    
-    return result;
-}
 
 -(TreeNode*) testTree{
     TreeNode* root = [[TreeNode alloc] initWithTitle:@"Root"];

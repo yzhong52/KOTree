@@ -8,7 +8,6 @@
 
 #import "TreeCellView.h"
 #import "TreeNode.h"
-#import "KOTreeItem.h"
 
 @interface TreeCellView()
 @property (weak, nonatomic) IBOutlet UIView *bigContentView;

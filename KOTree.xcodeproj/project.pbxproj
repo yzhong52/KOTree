@@ -17,9 +17,6 @@
 		4B7405F719FEE0110006CC38 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7405F619FEE0110006CC38 /* TreeNode.m */; };
 		4BD3F0A419FE9CD300E0FDF6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */; };
 		4BD3F0A719FE9DD700E0FDF6 /* YCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */; };
-		6604DA0515D160F10025AA86 /* KOTreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604DA0215D160F10025AA86 /* KOTreeViewController.m */; };
-		6604DA1115D162870025AA86 /* KOTreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604DA1015D162870025AA86 /* KOTreeTableViewCell.m */; };
-		6604DA1415D163710025AA86 /* KOTreeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604DA1315D163710025AA86 /* KOTreeItem.m */; };
 		6689446E15D15FBF00C6C800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6689446D15D15FBF00C6C800 /* UIKit.framework */; };
 		6689447015D15FBF00C6C800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6689446F15D15FBF00C6C800 /* Foundation.framework */; };
 		6689447215D15FBF00C6C800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6689447115D15FBF00C6C800 /* CoreGraphics.framework */; };
@@ -51,11 +48,6 @@
 		4BD3F0A319FE9CD300E0FDF6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4BD3F0A519FE9DD700E0FDF6 /* YCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCTableViewController.h; sourceTree = "<group>"; };
 		4BD3F0A619FE9DD700E0FDF6 /* YCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCTableViewController.m; sourceTree = "<group>"; };
-		6604DA0115D160F10025AA86 /* KOTreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOTreeViewController.h; sourceTree = "<group>"; };
-		6604DA0215D160F10025AA86 /* KOTreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOTreeViewController.m; sourceTree = "<group>"; };
-		6604DA1015D162870025AA86 /* KOTreeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOTreeTableViewCell.m; sourceTree = "<group>"; };
-		6604DA1215D163710025AA86 /* KOTreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOTreeItem.h; sourceTree = "<group>"; };
-		6604DA1315D163710025AA86 /* KOTreeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOTreeItem.m; sourceTree = "<group>"; };
 		6689446915D15FBF00C6C800 /* KOTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KOTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6689446D15D15FBF00C6C800 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6689446F15D15FBF00C6C800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,7 +58,6 @@
 		6689447B15D15FBF00C6C800 /* KOTree-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KOTree-Prefix.pch"; sourceTree = "<group>"; };
 		6689447C15D15FBF00C6C800 /* KOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KOAppDelegate.h; sourceTree = "<group>"; };
 		6689447D15D15FBF00C6C800 /* KOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KOAppDelegate.m; sourceTree = "<group>"; };
-		66B86AE415DD164400DB7BAF /* KOTreeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOTreeTableViewCell.h; sourceTree = "<group>"; };
 		66BD9BCA15D3F83A00B29086 /* copymove-cell-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "copymove-cell-bg.png"; sourceTree = "<group>"; };
 		66BD9BCB15D3F83A00B29086 /* item-counter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-counter.png"; sourceTree = "<group>"; };
 		66BD9BCC15D3F83A00B29086 /* item-counter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-counter@2x.png"; sourceTree = "<group>"; };
@@ -148,7 +139,6 @@
 				4B7405E619FEA26B0006CC38 /* TreeViewController.m */,
 				4B7405E919FEB6FB0006CC38 /* TreeCellView.h */,
 				4B7405EA19FEB6FB0006CC38 /* TreeCellView.m */,
-				66B86AE215DD155000DB7BAF /* Classes */,
 				6689447C15D15FBF00C6C800 /* KOAppDelegate.h */,
 				6689447D15D15FBF00C6C800 /* KOAppDelegate.m */,
 				4B7405E819FEB4BB0006CC38 /* TO BE REMOVED */,
@@ -169,19 +159,6 @@
 				6689447B15D15FBF00C6C800 /* KOTree-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		66B86AE215DD155000DB7BAF /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				6604DA0115D160F10025AA86 /* KOTreeViewController.h */,
-				6604DA0215D160F10025AA86 /* KOTreeViewController.m */,
-				66B86AE415DD164400DB7BAF /* KOTreeTableViewCell.h */,
-				6604DA1015D162870025AA86 /* KOTreeTableViewCell.m */,
-				6604DA1215D163710025AA86 /* KOTreeItem.h */,
-				6604DA1315D163710025AA86 /* KOTreeItem.m */,
-			);
-			name = Classes;
 			sourceTree = "<group>";
 		};
 		66BD9BD915D3F84100B29086 /* Assets */ = {
@@ -276,10 +253,7 @@
 			files = (
 				6689447A15D15FBF00C6C800 /* main.m in Sources */,
 				6689447E15D15FBF00C6C800 /* KOAppDelegate.m in Sources */,
-				6604DA0515D160F10025AA86 /* KOTreeViewController.m in Sources */,
-				6604DA1115D162870025AA86 /* KOTreeTableViewCell.m in Sources */,
 				4B7405EB19FEB6FB0006CC38 /* TreeCellView.m in Sources */,
-				6604DA1415D163710025AA86 /* KOTreeItem.m in Sources */,
 				4B7405E719FEA26B0006CC38 /* TreeViewController.m in Sources */,
 				4BD3F0A719FE9DD700E0FDF6 /* YCTableViewController.m in Sources */,
 				4B7405F719FEE0110006CC38 /* TreeNode.m in Sources */,
