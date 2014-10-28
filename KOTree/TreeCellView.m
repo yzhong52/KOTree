@@ -48,7 +48,7 @@
     self.titleLabel.text = self.treeNode.title;
     self.iconImage.image = [UIImage imageNamed: self.treeNode.isOpened ? @"FolderOpen.png" : @"FolderClose.png"];
     
-    self.leftSpacing.constant = 15 * self.treeNode.depth;
+    self.leftSpacing.constant = 25 * self.treeNode.depth;
     [self.contentView needsUpdateConstraints];
     
 }

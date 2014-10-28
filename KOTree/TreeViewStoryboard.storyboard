@@ -20,7 +20,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jm7-1s-tte">
-                                            <rect key="frame" x="-8" y="-7" width="616" height="103"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="86"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqe-9y-Lqz">
                                                     <rect key="frame" x="107" y="34" width="259" height="21"/>
@@ -29,14 +29,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FolderClose.png" translatesAutoresizingMaskIntoConstraints="NO" id="jRF-A5-bqC">
-                                                    <rect key="frame" x="24" y="14" width="75" height="75"/>
+                                                    <rect key="frame" x="24" y="6" width="75" height="75"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="75" id="9NE-yA-lhD"/>
                                                         <constraint firstAttribute="width" constant="75" id="l3e-Iv-R8N"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeP-uN-XpV">
-                                                    <rect key="frame" x="533" y="26" width="51" height="51"/>
+                                                    <rect key="frame" x="517" y="18" width="51" height="51"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="51" id="KZp-4x-mGe"/>
                                                         <constraint firstAttribute="height" constant="51" id="gm9-7w-Go9"/>
@@ -59,10 +59,10 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jm7-1s-tte" firstAttribute="leading" secondItem="7yQ-9f-5cQ" secondAttribute="leading" constant="-8" id="5gB-di-H5n"/>
-                                        <constraint firstItem="jm7-1s-tte" firstAttribute="top" secondItem="7yQ-9f-5cQ" secondAttribute="top" constant="-7" id="VS1-XA-4uW"/>
-                                        <constraint firstAttribute="bottom" secondItem="jm7-1s-tte" secondAttribute="bottom" constant="-10" id="hoR-hR-BGs"/>
-                                        <constraint firstAttribute="trailing" secondItem="jm7-1s-tte" secondAttribute="trailing" constant="-8" id="wW3-Ka-Dn5"/>
+                                        <constraint firstItem="jm7-1s-tte" firstAttribute="leading" secondItem="7yQ-9f-5cQ" secondAttribute="leading" id="5gB-di-H5n"/>
+                                        <constraint firstItem="jm7-1s-tte" firstAttribute="top" secondItem="7yQ-9f-5cQ" secondAttribute="top" id="VS1-XA-4uW"/>
+                                        <constraint firstAttribute="bottom" secondItem="jm7-1s-tte" secondAttribute="bottom" id="hoR-hR-BGs"/>
+                                        <constraint firstAttribute="trailing" secondItem="jm7-1s-tte" secondAttribute="trailing" id="wW3-Ka-Dn5"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
